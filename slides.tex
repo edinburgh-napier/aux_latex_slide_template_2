@@ -1,0 +1,148 @@
+\documentclass{beamer} %Uncomment for presentation
+%\documentclass[handout]{beamer} %Uncomment for printable handouts
+%\documentclass[handout, notes=show]{beamer} %Uncomment for speaker notes
+\usepackage{handoutWithNotes}
+% Uncomment for handout with note space
+%\pgfpagesuselayout{3 on 1 with notes}[a4paper, border shrink=5mm] 
+\usetheme{Pittsburgh}
+\usefonttheme{professionalfonts}
+\usecolortheme{beaver}
+\usecolortheme{rose}
+\setbeamertemplate{items}[circle]
+\setbeamercolor{item projected}{bg=darkred}
+\setbeamercolor{itemize item}{fg=darkred}
+\setbeamercolor{itemize subitem}{fg=darkred}
+\setbeamercolor{itemize subsubitem}{fg=darkred}
+\setbeamercolor{block title}{bg=gray}
+\setbeamercolor{block title}{fg=black}
+
+\author[Shortened Name]{[Lecturer Name]}
+\title[Shortened Title]{[Title of Presentation]}
+\subtitle[Shortened Subtitle]{[Subtitle of Presentation]}
+\institute[Edinburgh Napier]
+{
+    School of Computing\\
+    Edinburgh Napier University\\
+    Edinburgh\\[1ex]
+    \texttt{[Email Address]}\\
+    \includegraphics[width=4cm]{logo}
+}
+\date{}
+
+\AtBeginSection[]
+{
+    \begin{frame}{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{color}
+
+\definecolor{grey}{rgb}{0.9, 0.9, 0.9}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{dkred}{rgb}{0.6,0,0.0}
+
+\begin{document}
+
+    \begin{frame}[plain]
+        % Creates the title frame.
+        \titlepage
+    \end{frame}
+    
+    \begin{frame}{Outline}
+        % Creates table of contents.
+        % Remove [pausesections] to stop a slide being generated for each item.
+        \tableofcontents[pausesections]
+    \end{frame}
+    
+    \begin{frame}{Frame}
+        A single slide is defined as a frame.
+        
+        The title of the frame is in the second set of curly braces.
+    \end{frame}
+    
+    \begin{frame}{Bullet Points}
+        \begin{itemize}
+            \item Bullet points are added via the itemize environment.
+            \item We can also have sub-bullets by adding a further itemize within the first itemize.
+            \begin{itemize}
+                \item Like so.
+                \item This can be continued, although the template only supports a few levels simply.
+            \end{itemize}
+        \end{itemize}
+        \begin{enumerate}
+            \item Numbered lists are added using the enumerate environment.
+            \begin{enumerate}
+                \item And we can go down levels as well.
+            \end{enumerate}
+            \begin{itemize}
+                \item Or go into bullet points.
+            \end{itemize}
+        \end{enumerate}
+    \end{frame}
+    
+    \begin{frame}{Revealing}
+        \begin{itemize}
+            \item It is possible to reveal bullet points one ``slide'' at a time.
+            \item For example:
+            \item<2-> This appears as the second slide.
+            \item<4-> This the fourth.
+            \item<3> And this as third only.
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}{Auto-reveal}
+        \begin{itemize}[<+->]
+            \item It is possible to automatically have the bullet points revealed one at a time.
+            \item To do this, we specify a modifier on the itemize environment - \[<+->\]
+            \item Then everything is automatically generated.
+        \end{itemize}
+    \end{frame}
+    
+    \section{A Section}
+    
+    \begin{frame}{Sections and the Outline}
+        \begin{itemize}
+            \item To add something to the Outline slide (table of contents) create a section.
+            \item Each section will add an entry to the Outline.
+            \item Usually best to generate the slides twice for this.
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}{Images}
+        \begin{itemize}
+            \item Adding images is just the same as normal LaTeX.
+            \item Just add a graphics include where you want the image, like so:
+        \end{itemize}
+        \includegraphics[width=\textwidth]{logo}
+    \end{frame}
+    
+    \begin{frame}{Columns}
+        \begin{columns}
+            \begin{column}{.5\textwidth}
+                \begin{itemize}
+                    \item Columns can be added using the columns environment.
+                    \item This allows some layout control of your slides.
+                    \item For example, you might want a picture on the right and text on the left as we have here.
+                    \item Each column has to be specified using the column environment.
+                \end{itemize}
+            \end{column}
+            \begin{column}{.5\textwidth}
+                \includegraphics[width=\textwidth]{logo}
+            \end{column}
+        \end{columns}
+    \end{frame}
+    
+    \begin{frame}{Blocks}
+        \begin{itemize}
+            \item You might also want to have a text box (or similar) to highlight something on the slide.
+            \item For this, use the block environment
+        \end{itemize}
+        \begin{block}{Block Title}
+            Blocks can also be revealed using the same technique as used for itemize, etc.
+        \end{block}
+    \end{frame}
+
+\end{document}
